@@ -1,0 +1,302 @@
+/* Base styles */
+:root {
+    --primary-color: #ff6b35;
+    --primary-light: #ff8b60;
+    --primary-dark: #e54e1b;
+    --secondary-color: #2e4057;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --mid-gray: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+  }
+  
+  /* Layout */
+  .app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .auth-container {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .auth-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    overflow: hidden;
+  }
+  
+  /* Logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  
+  .logo {
+    font-size: 36px;
+    margin-right: 12px;
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  
+  /* Mode toggle */
+  .mode-toggle {
+    display: flex;
+    background: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .toggle-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+  }
+  
+  .toggle-btn.active {
+    color: white;
+  }
+  
+  .toggle-btn:first-child.active ~ .toggle-btn:last-child {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .toggle-btn:last-child.active {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .toggle-btn:first-child.active {
+    background: var(--primary-color);
+  }
+  
+  .toggle-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Form inputs */
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--secondary-color);
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--mid-gray);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: var(--transition);
+  }
+  
+  .input-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+  }
+  
+  /* Location section */
+  .location-container {
+    margin-bottom: 20px;
+  }
+  
+  .location-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .location-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: var(--light-gray);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .location-btn:hover {
+    background: var(--mid-gray);
+  }
+  
+  .location-btn.loading {
+    background: var(--mid-gray);
+    cursor: wait;
+    opacity: 0.7;
+  }
+  
+  .btn-icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+  
+  .location-btn.india {
+    background-color: #f0f8ff;
+  }
+  
+  .location-btn.india:hover {
+    background-color: #e0f0ff;
+  }
+  
+  /* Map */
+  .map-container {
+    height: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+  }
+  
+  /* Coordinates display */
+  .coordinates {
+    display: flex;
+    justify-content: space-between;
+    background: var(--light-gray);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .coordinate {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .coordinate span {
+    color: #666;
+    margin-bottom: 4px;
+  }
+  
+  .coordinate strong {
+    color: var(--primary-color);
+    font-size: 16px;
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+  }
+  
+  .submit-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(229, 78, 27, 0.2);
+  }
+  
+  .submit-btn:disabled {
+    background: var(--mid-gray);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .submit-btn.loading {
+    position: relative;
+    padding-left: 40px;
+  }
+  
+  .submit-btn.loading::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .auth-card {
+      padding: 20px;
+    }
+    
+    .logo {
+      font-size: 28px;
+    }
+    
+    h1 {
+      font-size: 22px;
+    }
+    
+    .map-container {
+      height: 220px;
+    }
+    
+    .coordinates {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .coordinate {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+  }
